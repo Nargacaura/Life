@@ -7,15 +7,14 @@
 #include "grille.h"
 
 void alloue_grille(int l, int c, grille* g) {
-  g=malloc(sizeof(grille));
   g->nbc=c;
   g->nbl=l;
   g->cellules=(int**)malloc(l*sizeof(int*));
 
   int count;
-  for(count=0; count<l; count++)
-    g->cellules[count]=(int*)malloc(c*sizeof(int));
-  
+  for(count=0; count<l; count++){
+    g->cellules[count]=(int*)calloc(c, sizeof(int));
+  } 
 }
 
 void libere_grille(grille* g) {
@@ -25,7 +24,6 @@ void libere_grille(grille* g) {
   free(g->cellules);
   g->nbc=0;
   g->nbl=0;
-  free(g);
 }
 
 void init_grille_from_file(char const*const filename, grille *const g) {
@@ -41,11 +39,12 @@ void init_grille_from_file(char const*const filename, grille *const g) {
   fscanf(pfile, "%d", &l);
   fscanf(pfile, "%d", &c);
 
+  printf("%d x %d\n", l, c);
   alloue_grille(l,c,g);
 
   int vivantes=0;
   fscanf(pfile, "%d", & vivantes);
-  for (int n=0; n < vivantes; ++n){
+  for (int n=0; n < vivantes; n++){
     fscanf(pfile, "%d", &l);
     fscanf(pfile, "%d", &c);
     set_vivante(l,c,*g);
