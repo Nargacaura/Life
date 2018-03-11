@@ -1,3 +1,8 @@
+/**
+  \file io.c
+  \brief Source d'entrée/sortie
+
+ */
 #include "io.h"
 
 static void affiche_trait(int c) {

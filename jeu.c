@@ -1,3 +1,8 @@
+/**
+  \file jeu.c
+  \brief Source du "jeu"
+
+ */ 
 #include "jeu.h"
 #include <stdio.h>
 
@@ -20,13 +25,13 @@ void evolue(grille *g, grille *gc) {
   copie_grille (g,gc); // copie temporaire de la grille
   for (int i=0; i < g->nbl; ++i) {
     for (int j=0; j < g->nbc; ++j) {
-      if(!est_vivante(i, j, *gc) && compte_voisins_vivants(i, j, *gc)==3)
+      if(!est_vivante(i, j, *gc) && compte_voisins_vivants(i, j, *gc)==3) /**< Si elle est morte et a 3 voisins */
         set_vivante(i, j, *g);
       else {
         if(est_vivante(i, j, *gc) &&
-          (compte_voisins_vivants(i, j, *gc)==2 || compte_voisins_vivants(i, j, *gc)==3))
+          (compte_voisins_vivants(i, j, *gc)==2 || compte_voisins_vivants(i, j, *gc)==3)) /**< Si elle est déjà vivante */
           set_vivante(i, j, *g);
-        else set_morte(i, j, *g);
+        else set_morte(i, j, *g); /**< sinon elle meurt */
       }
     }
   }

@@ -1,3 +1,8 @@
+/**
+  \file grille.c
+  \brief Source de la grille
+
+ */
 #include <assert.h>
 #include <errno.h>
 #include <string.h>
@@ -61,6 +66,6 @@ void copie_grille(const grille *const gs, grille *const gd) {
       gd->cellules[i][j] = gs->cellules[i][j];
 }
 
-extern inline bool est_vivante(int i, int j, grille g);
+extern inline bool est_vivante(int i, int j, grille g); 
 extern inline void set_vivante(int i, int j, grille g);
 extern inline void set_morte(int i, int j, grille g);
