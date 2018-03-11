@@ -3,18 +3,14 @@
 
 int compte_voisins_vivants(int i, int j, grille g) {
   int v = 0;
-  int lb=i-1, cb=j-1;
-  for(int templ=0; templ<3; templ++, lb++){
-    for(int tempc=0; tempc<3; tempc++, cb++){
-      if(lb<0)
-        lb=modulo(g.nbl+(i-1), g.nbl);
-      if(cb<0)
-        cb=modulo(g.nbc+(j-1), g.nbc);
-      if(lb>g.nbl-1)
-        lb=modulo(lb, g.nbl);
-      if(cb>g.nbc-1)
-        cb=modulo(cb, g.nbc);
-      v+=est_vivante(lb, cb, g);
+  for(int templ=-1; templ<=1; templ++){
+    for(int tempc=-1; tempc<=1; tempc++){
+      if(templ!=0)
+        v+=est_vivante(modulo(i+templ, g.nbl), modulo(j+tempc, g.nbc), g);
+      else {
+        if(tempc!=0)
+          v+=est_vivante(modulo(i, g.nbl), modulo(j+tempc, g.nbc), g);
+      }
     }
   }
   return v;

@@ -25,7 +25,7 @@ jeu: jeu.c jeu.h
 	$(CC) $(CPPFLAGS) $(CFLAGS) $<
 	
 clean:
-	rm $(OBJECTS) $(EXEC) Doxyfile -f
+	rm $(OBJECTS) $(EXEC) doc -f
 
 archive:
 	tar $(TARFLAGS) "$(NAME).tar.gz" $(SOURCES) $(HEADERS) $(FILES)
