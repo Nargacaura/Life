@@ -10,7 +10,7 @@
 #include "io.h"
 #include "jeu.h"
 
-int main (int argc, char ** argv) {
+int main (int argc, char ** argv) { /** \brief programme principal */
   if (argc != 2) {
     printf("Usage : %s <fichier grille>\n", argv[0]);
     return 1;

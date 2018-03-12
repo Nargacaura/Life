@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Life: le jeu de la Vie
-   &#160;<span id="projectnumber">0.1a</span>
+   &#160;<span id="projectnumber">0.2beta</span>
    </div>
   </td>
  </tr>
@@ -78,11 +78,19 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:adf9adf6ee75bcfbe164ac465ca5e4f82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#adf9adf6ee75bcfbe164ac465ca5e4f82">compte_voisins_vivants</a> (int i, int j, <a class="el" href="structgrille.html">grille</a> g)</td></tr>
-<tr class="memdesc:adf9adf6ee75bcfbe164ac465ca5e4f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte des voisins vivants | <code>compte_voisins_vivants</code> Compte les voisins d'une cellule en position (i,j) dans la grille <code>g</code> sans compter celle-ci. Le parcours est cyclique.  <a href="#adf9adf6ee75bcfbe164ac465ca5e4f82">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:adf9adf6ee75bcfbe164ac465ca5e4f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">REMPLACÉE PAR compte_voisins_vivants_c! <br />
+<br />
+.  <a href="#adf9adf6ee75bcfbe164ac465ca5e4f82">Plus de détails...</a><br /></td></tr>
 <tr class="separator:adf9adf6ee75bcfbe164ac465ca5e4f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada8f751a97ad1847db23c5ba17be7802"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ada8f751a97ad1847db23c5ba17be7802">evolue</a> (<a class="el" href="structgrille.html">grille</a> *g, <a class="el" href="structgrille.html">grille</a> *gc)</td></tr>
-<tr class="memdesc:ada8f751a97ad1847db23c5ba17be7802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Évolution | <code>evolue</code> Affiche l'état des cellules au temps t+1.  <a href="#ada8f751a97ad1847db23c5ba17be7802">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ada8f751a97ad1847db23c5ba17be7802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af12de807af07702d741c6bab85be0768"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#af12de807af07702d741c6bab85be0768">compte_voisins_vivants_c</a> (int i, int j, int distance, <a class="el" href="structgrille.html">grille</a> g)</td></tr>
+<tr class="memdesc:af12de807af07702d741c6bab85be0768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte cyclique des voisins vivants | <code>compte_voisins_vivants_c</code> Compte les voisins d'une cellule en position (i,j) dans la grille <code>g</code> sans compter celle-ci. Le parcours est cyclique.  <a href="#af12de807af07702d741c6bab85be0768">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af12de807af07702d741c6bab85be0768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e27efbad5be5b9accdf83c172825e57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a1e27efbad5be5b9accdf83c172825e57">compte_voisins_vivants_nc</a> (int i, int j, int distance, <a class="el" href="structgrille.html">grille</a> g)</td></tr>
+<tr class="memdesc:a1e27efbad5be5b9accdf83c172825e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte non cyclique des voisins vivants | <code>compte_voisins_vivants_nc</code> Compte les voisins d'une cellule en position (i,j) dans la grille <code>g</code> sans compter celle-ci. Le parcours est non cyclique.  <a href="#a1e27efbad5be5b9accdf83c172825e57">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1e27efbad5be5b9accdf83c172825e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19974a68fccb7ca05e430f7575ce4b42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a19974a68fccb7ca05e430f7575ce4b42">evolue</a> (<a class="el" href="structgrille.html">grille</a> *g, <a class="el" href="structgrille.html">grille</a> *gc, int dist, int(*compte_v)(int, int, int, <a class="el" href="structgrille.html">grille</a>))</td></tr>
+<tr class="memdesc:a19974a68fccb7ca05e430f7575ce4b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Évolution | <code>evolue</code> Affiche l'état des cellules au temps t+1.  <a href="#a19974a68fccb7ca05e430f7575ce4b42">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a19974a68fccb7ca05e430f7575ce4b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Headers pour <code><a class="el" href="jeu_8c.html" title="Source du &quot;jeu&quot;. ">jeu.c</a></code>. </p>
@@ -119,7 +127,10 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compte des voisins vivants | <code>compte_voisins_vivants</code> Compte les voisins d'une cellule en position (i,j) dans la grille <code>g</code> sans compter celle-ci. Le parcours est cyclique. </p>
+<p>REMPLACÉE PAR compte_voisins_vivants_c! <br />
+<br />
+. </p>
+<p>Compte des voisins vivants | <code>compte_voisins_vivants</code> Compte les voisins d'une cellule en position (i,j) dans la grille <code>g</code> sans compter celle-ci. Le parcours est cyclique.</p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Ligne où la cellule se trouve </td></tr>
@@ -132,8 +143,112 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="ada8f751a97ad1847db23c5ba17be7802"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada8f751a97ad1847db23c5ba17be7802">&#9670;&nbsp;</a></span>evolue()</h2>
+<a id="af12de807af07702d741c6bab85be0768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af12de807af07702d741c6bab85be0768">&#9670;&nbsp;</a></span>compte_voisins_vivants_c()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int compte_voisins_vivants_c </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>distance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structgrille.html">grille</a>&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compte cyclique des voisins vivants | <code>compte_voisins_vivants_c</code> Compte les voisins d'une cellule en position (i,j) dans la grille <code>g</code> sans compter celle-ci. Le parcours est cyclique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Ligne où la cellule se trouve </td></tr>
+    <tr><td class="paramname">j</td><td>Colonne où la cellule se situe </td></tr>
+    <tr><td class="paramname">distance</td><td>Rayon minimum du voisinage cyclique </td></tr>
+    <tr><td class="paramname">g</td><td>Tableau de cellules </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de voisins vivants </dd></dl>
+
+</div>
+</div>
+<a id="a1e27efbad5be5b9accdf83c172825e57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e27efbad5be5b9accdf83c172825e57">&#9670;&nbsp;</a></span>compte_voisins_vivants_nc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int compte_voisins_vivants_nc </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>distance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structgrille.html">grille</a>&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compte non cyclique des voisins vivants | <code>compte_voisins_vivants_nc</code> Compte les voisins d'une cellule en position (i,j) dans la grille <code>g</code> sans compter celle-ci. Le parcours est non cyclique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Ligne où la cellule se trouve </td></tr>
+    <tr><td class="paramname">j</td><td>Colonne où la cellule se situe </td></tr>
+    <tr><td class="paramname">distance</td><td>Rayon minimum du voisinage cyclique </td></tr>
+    <tr><td class="paramname">g</td><td>Tableau de cellules </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de voisins vivants </dd></dl>
+
+</div>
+</div>
+<a id="a19974a68fccb7ca05e430f7575ce4b42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19974a68fccb7ca05e430f7575ce4b42">&#9670;&nbsp;</a></span>evolue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,7 +263,19 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structgrille.html">grille</a> *&#160;</td>
-          <td class="paramname"><em>gc</em>&#160;</td>
+          <td class="paramname"><em>gc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*)(int, int, int, <a class="el" href="structgrille.html">grille</a>)&#160;</td>
+          <td class="paramname"><em>compte_v</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -163,14 +290,16 @@ Fonctions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">g</td><td>Tableau à copier </td></tr>
     <tr><td class="paramname">gc</td><td>Copie du tableau </td></tr>
+    <tr><td class="paramname">dist</td><td>Rayon de voisins </td></tr>
+    <tr><td class="paramname">compte_v</td><td>Statut du parcours (cyclique ou non) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>Tableau <code>g</code> au temps t+1 </dd></dl>
-<p>&lt; Si elle est morte et a 3 voisins <br />
+<p>Si elle est morte et a 3 voisins, elle naît <br />
 <br />
- &lt; Si elle est déjà vivante <br />
- &lt; sinon elle meurt </p>
+ Si elle est déjà vivante et qu'elle a entre 2 et 3 voisins, elle continue de vivre <br />
+ sinon elle meurt </p>
 
 </div>
 </div>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Life: le jeu de la Vie
-   &#160;<span id="projectnumber">0.1a</span>
+   &#160;<span id="projectnumber">0.2beta</span>
    </div>
   </td>
  </tr>
@@ -63,7 +63,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Fonctions</a>  </div>
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier io.c</div>  </div>
 </div><!--header-->
@@ -72,6 +73,7 @@ $(function() {
 <p>Source d'entrée/sortie.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="io_8h_source.html">io.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="jeu_8h_source.html">jeu.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
@@ -84,6 +86,18 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a88493b3c55828670e47150a95ed7db5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#a88493b3c55828670e47150a95ed7db5b">debut_jeu</a> (<a class="el" href="structgrille.html">grille</a> *g, <a class="el" href="structgrille.html">grille</a> *gc)</td></tr>
 <tr class="memdesc:a88493b3c55828670e47150a95ed7db5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Que le jeu commence ! | <code>debut_jeu</code> Débute le jeu avec la grille et sa copie.  <a href="#a88493b3c55828670e47150a95ed7db5b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a88493b3c55828670e47150a95ed7db5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac310d9181e916ba43604099aee272c71"><td class="memItemLeft" align="right" valign="top"><a id="ac310d9181e916ba43604099aee272c71"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>t</b> =0</td></tr>
+<tr class="separator:ac310d9181e916ba43604099aee272c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a202b96e75a976514bbac0bcbb0fc0947"><td class="memItemLeft" align="right" valign="top"><a id="a202b96e75a976514bbac0bcbb0fc0947"></a>
+int(*&#160;</td><td class="memItemRight" valign="bottom"><b>compte_v</b> )(int, int, int, <a class="el" href="structgrille.html">grille</a>) =<a class="el" href="jeu_8h.html#af12de807af07702d741c6bab85be0768">compte_voisins_vivants_c</a></td></tr>
+<tr class="separator:a202b96e75a976514bbac0bcbb0fc0947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62d19f1b68cc51e55723b31a29cdef78"><td class="memItemLeft" align="right" valign="top"><a id="a62d19f1b68cc51e55723b31a29cdef78"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>dist</b> =1</td></tr>
+<tr class="separator:a62d19f1b68cc51e55723b31a29cdef78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Source d'entrée/sortie. </p>

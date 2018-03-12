@@ -25,10 +25,10 @@ jeu: jeu.c jeu.h
 	$(CC) $(CPPFLAGS) $(CFLAGS) $<
 
 doc:
-	doxygen -u Doxyfile; doxygen Doxyfile
+	doxygen Doxyfile
 	
 clean:
 	rm $(OBJECTS) $(EXEC) doc -f
 
 archive:
-	tar $(TARFLAGS) "$(NAME).tar.gz" $(SOURCES) $(HEADERS) $(FILES)
+	tar $(TARFLAGS) "$(NAME).tar.gz" $(SOURCES) $(HEADERS) $(FILES) grilles/

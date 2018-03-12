@@ -43,8 +43,6 @@ void init_grille_from_file(char const*const filename, grille *const g) {
   int l, c;
   fscanf(pfile, "%d", &l);
   fscanf(pfile, "%d", &c);
-
-  printf("%d x %d\n", l, c);
   alloue_grille(l,c,g);
 
   int vivantes=0;

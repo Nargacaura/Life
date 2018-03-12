@@ -14,9 +14,9 @@
 
  */
 typedef struct {
-  int nbl;
-  int nbc;
-  int **cellules;
+  int nbl; /** \brief nombre de lignes */
+  int nbc; /** \brief nombre de colonnes */
+  int **cellules; /** \brief matrice cellulaire */
 } grille;
 
 /**
