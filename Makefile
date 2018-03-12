@@ -23,6 +23,9 @@ jeu: jeu.c jeu.h
 
 %o: %c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $<
+
+doc:
+	doxygen -u Doxyfile; doxygen Doxyfile
 	
 clean:
 	rm $(OBJECTS) $(EXEC) doc -f
