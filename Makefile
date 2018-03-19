@@ -1,28 +1,33 @@
 .PHONY: all clean archive
 
+
+OBJPATH=obj/
+SRCPATH=src/
 CC = cc
 CPPFLAGS += -c
+INCLUDE = -I hdr/
 CFLAGS += -g -Wall -Wextra
 LDFLAGS +=
 TARFLAGS += -zcvf
+vpath %.c src
+vpath %.h hdr
+vpath %.o obj
 SOURCES=$(wildcard *.c)
 HEADERS=$(wildcard *.h)
 FILES=$(wildcard *file)
-OBJECTS=$(SOURCES:.c=.o)
+OBJECTS = main.o grille.o io.o jeu.o
 EXEC = life
 NAME = LifeGame
-all: $(EXEC)
 
 $(EXEC): $(OBJECTS)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
+	mv *.o $(OBJPATH)
 
-main.o: main.c grille.h io.h jeu.h
-grille.o: grille.c grille.h
-io.o: io.c io.h
-jeu: jeu.c jeu.h
+main.o: $(SRCPATH)main.c
+	$(CC) $(CFLAGS) -c $(SRCPATH)main.c $(INCLUDE)
 
-%o: %c
-	$(CC) $(CPPFLAGS) $(CFLAGS) $<
+%.o: %.c %.h
+	$(CC) $(CFLAGS) -c $< $(INCLUDE)
 
 doc:
 	doxygen Doxyfile
