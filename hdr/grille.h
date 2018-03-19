@@ -56,7 +56,7 @@ void init_grille_from_file(char const*const filename, grille* g);
  \return 1 sur la cellule (i,j) : la cellule est \b vivante
  */
 inline void set_vivante(int i, int j, grille g) {
-  g.cellules[i][j] = 1;
+  g.cellules[i][j]++;
 }
 
 /**
@@ -72,6 +72,10 @@ inline void set_morte(int i, int j, grille g) {
   g.cellules[i][j] = 0;
 }
 
+inline void set_non_viable(int i, int j, grille g){
+  g.cellules[i][j]=-1;
+}
+
 /**
  \brief Est-elle vivante ? | \c est_vivante
  Teste si la cellule est vivante.
@@ -82,7 +86,7 @@ inline void set_morte(int i, int j, grille g) {
  \return Booléen vérifiant l'existence de cette cellule
  */
 inline bool est_vivante(int i, int j, grille g) {
-  return g.cellules[i][j] == 1;
+  return g.cellules[i][j] >0;
 }
 
 /**

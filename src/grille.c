@@ -66,4 +66,5 @@ void copie_grille(const grille *const gs, grille *const gd) {
 
 extern inline bool est_vivante(int i, int j, grille g); 
 extern inline void set_vivante(int i, int j, grille g);
+extern inline void set_non_viable(int i, int j, grille g);
 extern inline void set_morte(int i, int j, grille g);

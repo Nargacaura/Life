@@ -13,19 +13,23 @@ static void affiche_trait(int c) {
   return;
 }
 
-unsigned int age=0, oldToggle=0;
+int oldToggle=0;
 static void affiche_ligne(int ligne, const grille *g) {
   if(oldToggle==0){
     for (int i=0; i < g->nbc; ++i) {
       if (est_vivante(ligne, i, *g))
-        printf ("| O ");
+        printf ("| ¤ ");
+      else if(g->cellules[ligne][i]==-1)
+        printf("| X ");
       else
         printf ("|   ");
     }
   } else {
     for(int i=0; i<g->nbc; ++i){
       if(est_vivante(ligne, i, *g))
-        printf("| %d ", t-(++age));
+        printf("| %d ", g->cellules[ligne][i]);
+      else if (g->cellules[ligne][i]==-1)
+        printf("| X ");
       else printf("|   ");
     }
   } 
@@ -90,7 +94,7 @@ void debut_jeu(grille *g, grille *gc) {
       }
       case '\n' :
         { // touche "entree" pour évoluer
-          evolue(g,gc, dist, (*compte_v));
+          evolue(g,gc, dist, oldToggle, (*compte_v));
           efface_grille(g);
           affiche_grille(g);
           break;

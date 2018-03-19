@@ -64,6 +64,6 @@ int compte_voisins_vivants_nc(int i, int j, int distance, grille g);
  \param compte_v Statut du parcours (cyclique ou non)
  \return Tableau \c g au temps t+1
  */
-void evolue (grille *g, grille *gc, int dist, int (*compte_v)(int, int, int, grille));
+void evolue (grille *g, grille *gc, int dist, int toggle, int (*compte_v)(int, int, int, grille));
 
 #endif

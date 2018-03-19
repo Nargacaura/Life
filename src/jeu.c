@@ -54,17 +54,25 @@ int compte_voisins_vivants_nc(int i, int j, int distance, grille g){
   return v;
 }
 
-void evolue(grille *g, grille *gc, int dist, int (*compte_v)(int, int, int, grille)) {
+void evolue(grille *g, grille *gc, int dist, int toggle, int (*compte_v)(int, int, int, grille)) {
   copie_grille (g,gc); // copie temporaire de la grille
   for (int i=0; i < g->nbl; ++i) {
     for (int j=0; j < g->nbc; ++j) {
-      if(!est_vivante(i, j, *gc) && compte_v(i, j, dist, *gc)==3) /** \brief Si elle est morte et a 3 voisins, elle naît */
-        set_vivante(i, j, *g);
+      if(!est_vivante(i, j, *gc) && compte_v(i, j, dist, *gc)==0) set_non_viable(i, j, *g);
       else {
-        if(est_vivante(i, j, *gc) &&
-          (compte_v(i, j, dist, *gc)==2 || compte_v(i, j, dist, *gc)==3)) /** \brief Si elle est déjà vivante et qu'elle a entre 2 et 3 voisins, elle continue de vivre */
+        if(!est_vivante(i, j, *gc) && compte_v(i, j, dist, *gc)==3) {/** \brief Si elle est morte et a 3 voisins, elle naît */
           set_vivante(i, j, *g);
-        else set_morte(i, j, *g); /** \brief sinon elle meurt */
+        }
+        else {
+          if(toggle==1 && gc->cellules[i][j]>=8) set_morte(i, j, *g);
+          else {
+            if(est_vivante(i, j, *gc) &&
+              (compte_v(i, j, dist, *gc)==2 || compte_v(i, j, dist, *gc)==3)) { /** \brief Si elle est déjà vivante et qu'elle a entre 2 et 3 voisins, elle continue de vivre */
+              set_vivante(i, j, *g);
+            }
+            else set_morte(i, j, *g); /** \brief sinon elle meurt */
+          }
+        }
       }
     }
   }
