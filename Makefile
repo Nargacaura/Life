@@ -1,5 +1,4 @@
-.PHONY: all clean archive
-
+.PHONY: all doc clean archive
 
 OBJPATH=obj/
 SRCPATH=src/
@@ -33,7 +32,7 @@ doc:
 	doxygen Doxyfile
 	
 clean:
-	rm $(OBJECTS) $(EXEC) doc -f
+	rm $(OBJECTS) $(EXEC) -f
 
 archive:
 	tar $(TARFLAGS) "$(NAME).tar.gz" $(SOURCES) $(HEADERS) $(FILES) grilles/

@@ -58,7 +58,7 @@ void evolue(grille *g, grille *gc, int dist, int toggle, int (*compte_v)(int, in
   copie_grille (g,gc); // copie temporaire de la grille
   for (int i=0; i < g->nbl; ++i) {
     for (int j=0; j < g->nbc; ++j) {
-      if(!est_vivante(i, j, *gc) && compte_v(i, j, dist, *gc)==0) set_non_viable(i, j, *g);
+      if(!est_vivante(i, j, *gc) && compte_v(i, j, dist, *gc)<=1) set_non_viable(i, j, *g);
       else {
         if(!est_vivante(i, j, *gc) && compte_v(i, j, dist, *gc)==3) {/** \brief Si elle est morte et a 3 voisins, elle naît */
           set_vivante(i, j, *g);
