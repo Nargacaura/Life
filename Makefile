@@ -1,38 +1,52 @@
 .PHONY: all doc clean archive
 
+vpath %.c src
+vpath %.h hdr
+vpath %.o obj
+
 OBJPATH=obj/
 SRCPATH=src/
 CC = cc
 CPPFLAGS += -c
-INCLUDE = -I hdr/
+INCLUDE = -I hdr/ -I/usr/include/cairo
+CPPFLAGS += -Iinclude
 CFLAGS += -g -Wall -Wextra
-LDFLAGS +=
+LDFLAGS += -lcairo -lm -lX11
 TARFLAGS += -zcvf
-vpath %.c src
-vpath %.h hdr
-vpath %.o obj
-SOURCES=$(wildcard *.c)
+SOURCES= main.c grille.c io.c jeu.c
 HEADERS=$(wildcard *.h)
 FILES=$(wildcard *file)
+OBJECTS_GUI = cairo.o grille.o io.o jeu.o
 OBJECTS = main.o grille.o io.o jeu.o
 EXEC = life
 NAME = LifeGame
+MODE = GUI
 
+ifeq ($(MODE), TEXTE)
 $(EXEC): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
-	mv *.o $(OBJPATH)
+else
+$(EXEC): $(OBJECTS_GUI)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+	@mv *.o $(OBJPATH)
+endif
 
+ifeq ($(MODE), TEXTE)
 main.o: $(SRCPATH)main.c
 	$(CC) $(CFLAGS) -c $(SRCPATH)main.c $(INCLUDE)
+else
+cairo.o: $(SRCPATH)cairo.c
+	$(CC) $(CFLAGS) -c $(SRCPATH)cairo.c $(INCLUDE)
+endif
 
 %.o: %.c %.h
 	$(CC) $(CFLAGS) -c $< $(INCLUDE)
-
+	
 doc:
 	doxygen Doxyfile
 	
 clean:
-	rm $(OBJECTS) $(EXEC) -f
+	rm $(OBJPATH)* $(EXEC) -f
 
 archive:
 	tar $(TARFLAGS) "$(NAME).tar.gz" $(SOURCES) $(HEADERS) $(FILES) grilles/

@@ -28,7 +28,7 @@ int compte_voisins_vivants_c(int i, int j, int distance, grille g){
     //int ca=valeur_cyclique(a, g.nbl);
     for(int debutc=-distance; debutc<=distance; debutc++){
       /* avec valeur cyclique:
-         int ca=valeur_cyclique(b, g.nbc);
+         int cb=valeur_cyclique(b, g.nbc);
          if(est_vivante(ca, cb, g)) v++;*/
       if(debutl!=0)
         v+=est_vivante(modulo(i+debutl, g.nbl), modulo(j+debutc, g.nbc), g);
