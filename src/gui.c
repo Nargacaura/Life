@@ -1,3 +1,8 @@
+/**
+ * \file gui.c
+ * \brief Code graphique du jeu de la Vie
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <cairo.h>
@@ -5,29 +10,32 @@
 #include <X11/Xlib.h>
 #include <errno.h>
 #include <string.h>
-#include "../hdr/cairo.h"
+#include "../hdr/gui.h"
 #include "../hdr/grille.h"
 #include "../hdr/jeu.h"
+
+/**
+ * \def SIZEX 
+ * \brief la taille en pixels de la largeur
+ * 
+ * \def SIZEY
+ * \brief la taille en pixels de la largeur
+ */
 #define SIZEX 700
 #define SIZEY 600
 
-
+//AFFICHAGE
 void paint(cairo_surface_t *surface, grille g, int l, int c, int age, int cycle)
 {
-	// create cairo mask
+	// masque Cairo
 	cairo_t *cr;
 	cr=cairo_create(surface);
 
-	// background
+	// arrière-plan (en bleu de minuit...)
 	cairo_set_source_rgb (cr, 0.098, 0.098, 0.4392);
 	cairo_paint(cr);
 
-	
-	// filled rectangle
-	/*cairo_rectangle(cr,30,30,50,50);
-	cairo_set_source_rgb (cr, 0.0, 1.0, 0.0);
-	cairo_fill(cr);	*/
-	//test text
+	//Affichage du texte (la police de caractère est à changer selon celles installées)
 	cairo_text_extents_t te;
 	cairo_set_source_rgb (cr, 1.0, 1.0, 1.0);
 	cairo_select_font_face (cr, "CoStar Brown",
@@ -38,6 +46,7 @@ void paint(cairo_surface_t *surface, grille g, int l, int c, int age, int cycle)
 		25);
 	cairo_show_text (cr, "Life: le jeu de la Vie");
 
+	//Selon l'indicateur de vieillissement...
 	switch(age){
 		case 1:
 			cairo_text_extents (cr, "Vieillissement", &te);
@@ -54,6 +63,7 @@ void paint(cairo_surface_t *surface, grille g, int l, int c, int age, int cycle)
 		default:break;
 	}
 
+	//... et/ou celui du mode cyclique
 	switch(cycle){
 		case 1:
 			cairo_text_extents (cr, "Mode cyclique", &te);
@@ -69,7 +79,7 @@ void paint(cairo_surface_t *surface, grille g, int l, int c, int age, int cycle)
 			break;
 	}
 
-	// line
+	// lignes
 	int maxl=++l;
 	int maxc=++c;
 	for(int i=1; i<=l; ++i){
@@ -80,8 +90,7 @@ void paint(cairo_surface_t *surface, grille g, int l, int c, int age, int cycle)
 		cairo_stroke (cr);
 	}
 
-	//columns
-	
+	//colonnes
 	for(int i=1; i<=c; ++i){
 		cairo_set_source_rgb (cr, 1.0, 1.0, 1.0);
 		cairo_move_to (cr, i*50.0, 50.0);
@@ -89,14 +98,18 @@ void paint(cairo_surface_t *surface, grille g, int l, int c, int age, int cycle)
 		cairo_set_line_width (cr, 1);
 		cairo_stroke (cr);
 	}
+
+	//affichage des cellules vivantes & non viables
 	cairo_set_font_size (cr, 32);
 	for(int i=0; i<g.nbl; ++i) {
 		for(int j=0; j<g.nbc; ++j) {
+			//cellules vivantes
 			if (est_vivante(i,j,g)) {
 				cairo_text_extents (cr, "•", &te);
 				cairo_move_to (cr, 65+j*50, 85+i*50);
 				cairo_show_text (cr, "•");
 			}
+			//cellules non viables
 			else if (g.cellules[i][j]==-1){
 				cairo_text_extents (cr,"+", &te);
 				cairo_move_to (cr, 65+j*50, 85+i*50);
@@ -109,6 +122,7 @@ void paint(cairo_surface_t *surface, grille g, int l, int c, int age, int cycle)
 	cairo_destroy(cr); // destroy cairo mask
 }
 
+/** \brief programme principal*/
 int main (int argc, char *argv[]){
 	// X11 display
 	Display *dpy;
@@ -116,14 +130,19 @@ int main (int argc, char *argv[]){
 	Window win;
 	XEvent e;
 	int scr;
+
+	//initialisation des variables
 	grille g, c;
 	int toggle=0, cycle=0, dist=1;
 	int (*compte_v)(int, int, int, grille)=compte_voisins_vivants_nc;
 	
+	//si jamais on donne trop ou pas d'arguments
 	if(argc!=2){
 		printf("Usage: ./life <grille>\n");
 		exit(1);
 	}
+
+	//initialisation de la grille
 	init_grille_from_file(argv[1], &g);
 	alloue_grille (g.nbl, g.nbc, &c);
 
@@ -151,24 +170,30 @@ int main (int argc, char *argv[]){
 	while(1) {
 		XAllowEvents(dpy, AsyncPointer, CurrentTime);
 		XNextEvent(dpy, &e);
+		//tout dépend du type d'évènement:
 		switch(e.type){
+			//au démarrage...
 			case Expose: if(e.xexpose.count<1) {
 				paint(cs, g, g.nbl, g.nbc, toggle, cycle);
 				}
 				break;
+			//en cas d'appui sur la souris (ou le trackpad, j'ai pas essayé avec l'écran tactile)...
 			case ButtonPress: switch(e.xbutton.button){
+				//clic droit -> fin du programme
 				case 3: 
 					libere_grille(&g);
 					cairo_surface_destroy(cs); // destroy cairo surface
 					XCloseDisplay(dpy); // close the display
 					exit(0);
+				//clic gauche -> évolution de la grille
 				case 1: evolue(&g,&c,dist,toggle,compte_v);
 					paint(cs, g, g.nbl, g.nbc, toggle, cycle);
 					break;
 				}
 				break;
+			//en cas d'appui sur une touche du clavier...
 			case KeyPress: switch(e.xkey.keycode){
-				//c
+				//c -> change de mode
 				case 54:
 					switch(cycle){
 						case 1:
@@ -183,7 +208,7 @@ int main (int argc, char *argv[]){
 					paint(cs, g, g.nbl, g.nbc, toggle, cycle);
 					break;
 				
-				//v
+				//v -> change l'état des cellules
 				case 55: switch(toggle){
 						case 0:
 							toggle=1;
@@ -196,14 +221,14 @@ int main (int argc, char *argv[]){
 					paint(cs, g, g.nbl, g.nbc, toggle, cycle);
 					break;
 				
-				//d (distance)
+				//d -> demande la distance sur le terminal
 				case 40:
 					printf("Entrez la nouvelle distance: ");
 					dist=scanf("%d", &dist);
 					paint(cs, g, g.nbl, g.nbc, toggle, cycle);
 					break;
 
-				//n (fichier)
+				//n -> charge un nouveau fichier depuis le terminal
 				case 57:
 					libere_grille(&c);
 					libere_grille(&g);

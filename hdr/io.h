@@ -11,24 +11,24 @@
 #include "jeu.h"
 
 /**
- \brief Affichage de la grille | \c affiche_grille
- Affiche la grille donnée.
+ \fn affiche_grille (const grille*)
+ \brief Affiche la grille donnée.
 
  \param g Pointeur sur le tableau à afficher
  */
 void affiche_grille (const grille *g);
 
 /**
- \brief Effacement de la grille | \c efface_grille
- Efface la grille donnée.
+ \fn efface_grille (const grille*)
+ \brief Efface la grille donnée.
  
  \param g Pointeur sur le tableau à effacer
  */
 void efface_grille (const grille *g);
 
 /**
- \brief Que le jeu commence ! | \c debut_jeu
- Débute le jeu avec la grille et sa copie.
+ \fn debut_jeu (grille*, grille*)
+ \brief Débute le jeu avec la grille et sa copie.
  
  \param g Pointeur sur le tableau original
  \param gc Pointeur sur la copie du tableau

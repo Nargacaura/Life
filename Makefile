@@ -5,6 +5,7 @@ vpath %.h hdr
 vpath %.o obj
 
 OBJPATH=obj/
+HDRPATH=hdr/
 SRCPATH=src/
 CC = cc
 CPPFLAGS += -c
@@ -13,10 +14,10 @@ CPPFLAGS += -Iinclude
 CFLAGS += -g -Wall -Wextra
 LDFLAGS += -lcairo -lm -lX11
 TARFLAGS += -zcvf
-SOURCES= main.c grille.c io.c jeu.c
-HEADERS=$(wildcard *.h)
+SOURCES= main.c gui.c grille.c io.c jeu.c
+HEADERS= gui.h io.h grille.h jeu.h
 FILES=$(wildcard *file)
-OBJECTS_GUI = cairo.o grille.o io.o jeu.o
+OBJECTS_GUI = gui.o grille.o io.o jeu.o
 OBJECTS = main.o grille.o io.o jeu.o
 EXEC = life
 NAME = LifeGame
@@ -25,6 +26,7 @@ MODE = GUI
 ifeq ($(MODE), TEXTE)
 $(EXEC): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
+	@mv *.o $(OBJPATH)
 else
 $(EXEC): $(OBJECTS_GUI)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
@@ -44,9 +46,9 @@ endif
 	
 doc:
 	doxygen Doxyfile
-	
+
 clean:
-	rm $(OBJPATH)* $(EXEC) -f
+	rm $(addprefix $(OBJPATH), $(OBJECTS) $(OBJECTS_GUI)) $(EXEC) -f
 
 archive:
-	tar $(TARFLAGS) "$(NAME).tar.gz" $(SOURCES) $(HEADERS) $(FILES) grilles/
+	tar $(TARFLAGS) "$(NAME).tar.gz" $(addprefix $(HDRPATH), $(HEADERS)) $(addprefix $(SRCPATH), $(SOURCES)) $(FILES) grilles/

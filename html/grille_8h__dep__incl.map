@@ -1,8 +1,10 @@
 <map id="hdr/grille.h" name="hdr/grille.h">
-<area shape="rect" id="node2" href="$io_8h.html" title="Headers pour io.c. " alt="" coords="5,155,80,181"/>
-<area shape="rect" id="node4" href="$main_8c.html" title="Programme principal. " alt="" coords="226,229,318,256"/>
-<area shape="rect" id="node5" href="$jeu_8h.html" title="Headers pour jeu.c. " alt="" coords="154,80,235,107"/>
-<area shape="rect" id="node7" href="$grille_8c.html" title="Source de la grille. " alt="" coords="360,80,451,107"/>
-<area shape="rect" id="node3" href="$io_8c.html" title="Source d&#39;entrée/sortie. " alt="" coords="45,229,115,256"/>
-<area shape="rect" id="node6" href="$jeu_8c.html" title="Source du &quot;jeu&quot;. " alt="" coords="155,155,234,181"/>
+<area shape="rect" id="node2" href="$gui_8h.html" title="Headers pour gui.c. " alt="" coords="23,155,105,181"/>
+<area shape="rect" id="node3" href="$gui_8c.html" title="Code graphique du jeu de la Vie. " alt="" coords="25,229,103,256"/>
+<area shape="rect" id="node4" href="$jeu_8h.html" title="Headers pour jeu.c. " alt="" coords="257,80,338,107"/>
+<area shape="rect" id="node5" href="$io_8h.html" title="Headers pour io.c. " alt="" coords="385,155,460,181"/>
+<area shape="rect" id="node7" href="$main_8c.html" title="Programme principal. " alt="" coords="377,229,469,256"/>
+<area shape="rect" id="node9" href="$grille_8c.html" title="Source de la grille. " alt="" coords="535,80,625,107"/>
+<area shape="rect" id="node6" href="$io_8c.html" title="Source d&#39;entrée/sortie. " alt="" coords="271,229,342,256"/>
+<area shape="rect" id="node8" href="$jeu_8c.html" title="Source du &quot;jeu&quot;. " alt="" coords="181,155,259,181"/>
 </map>

@@ -22,8 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Life: le jeu de la Vie
-   &#160;<span id="projectnumber">level 3</span>
+   &#160;<span id="projectnumber">level 4</span>
    </div>
+   <div id="projectbrief">Projet de TechDev portant sur l&#39;automatisme de Conway découvert en 1970</div>
   </td>
  </tr>
  </tbody>
@@ -93,25 +94,28 @@ Graphe des dépendances par inclusion de grille.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:ae621f51c60aa4fafaa0c9f6c9b5a4036"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grille_8c.html#ae621f51c60aa4fafaa0c9f6c9b5a4036">alloue_grille</a> (int l, int c, <a class="el" href="structgrille.html">grille</a> *g)</td></tr>
-<tr class="memdesc:ae621f51c60aa4fafaa0c9f6c9b5a4036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocation de la grille | <code>alloue_grille</code> Alloue la grille de taille l*c. Toutes les cellules seront <b>mortes</b> par défaut.  <a href="#ae621f51c60aa4fafaa0c9f6c9b5a4036">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ae621f51c60aa4fafaa0c9f6c9b5a4036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alloue la grille de taille l*c. Toutes les cellules seront <b>mortes</b> par défaut.  <a href="#ae621f51c60aa4fafaa0c9f6c9b5a4036">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ae621f51c60aa4fafaa0c9f6c9b5a4036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7074b2b15576e9d2b3cd15c3a1dc7012"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grille_8c.html#a7074b2b15576e9d2b3cd15c3a1dc7012">libere_grille</a> (<a class="el" href="structgrille.html">grille</a> *g)</td></tr>
-<tr class="memdesc:a7074b2b15576e9d2b3cd15c3a1dc7012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libération de la grille | <code>libere_grille</code> Libère la grille donnée.  <a href="#a7074b2b15576e9d2b3cd15c3a1dc7012">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a7074b2b15576e9d2b3cd15c3a1dc7012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la grille donnée.  <a href="#a7074b2b15576e9d2b3cd15c3a1dc7012">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a7074b2b15576e9d2b3cd15c3a1dc7012"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae02ff155084ab0c3a9ccc4a37b9ba4e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grille_8c.html#ae02ff155084ab0c3a9ccc4a37b9ba4e6">init_grille_from_file</a> (char const *const filename, <a class="el" href="structgrille.html">grille</a> *const g)</td></tr>
-<tr class="memdesc:ae02ff155084ab0c3a9ccc4a37b9ba4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation de la grille | <code>init_grille_from_file</code> Alloue la grille et l'initialise depuis un fichier.  <a href="#ae02ff155084ab0c3a9ccc4a37b9ba4e6">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ae02ff155084ab0c3a9ccc4a37b9ba4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la grille depuis un fichier.  <a href="#ae02ff155084ab0c3a9ccc4a37b9ba4e6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ae02ff155084ab0c3a9ccc4a37b9ba4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79da7a2194caacae6741daf305bdbf6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grille_8c.html#a79da7a2194caacae6741daf305bdbf6e">copie_grille</a> (const <a class="el" href="structgrille.html">grille</a> *const gs, <a class="el" href="structgrille.html">grille</a> *const gd)</td></tr>
-<tr class="memdesc:a79da7a2194caacae6741daf305bdbf6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copie de la grille | <code>copie_grille</code> Copie la grille (pour des raisons de sécurité ?) sans allouer la destination.  <a href="#a79da7a2194caacae6741daf305bdbf6e">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a79da7a2194caacae6741daf305bdbf6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copie la grille (pour des raisons de sécurité ?) sans allouer la destination.  <a href="#a79da7a2194caacae6741daf305bdbf6e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a79da7a2194caacae6741daf305bdbf6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa814881babc3a8e277963a9083c5ebb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grille_8c.html#aa814881babc3a8e277963a9083c5ebb0">est_vivante</a> (int i, int j, <a class="el" href="structgrille.html">grille</a> g)</td></tr>
-<tr class="memdesc:aa814881babc3a8e277963a9083c5ebb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-elle vivante ? | <code>est_vivante</code> Teste si la cellule est vivante.  <a href="#aa814881babc3a8e277963a9083c5ebb0">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:aa814881babc3a8e277963a9083c5ebb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si la cellule est vivante.  <a href="#aa814881babc3a8e277963a9083c5ebb0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa814881babc3a8e277963a9083c5ebb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0cbadbe963314bacd54c1a1ea511da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grille_8c.html#ae0cbadbe963314bacd54c1a1ea511da7">set_vivante</a> (int i, int j, <a class="el" href="structgrille.html">grille</a> g)</td></tr>
-<tr class="memdesc:ae0cbadbe963314bacd54c1a1ea511da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">La naissance d'une cellule | <code>set_vivante</code> Rend la cellule vivante (bienvenue parmi les cellules !).  <a href="#ae0cbadbe963314bacd54c1a1ea511da7">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ae0cbadbe963314bacd54c1a1ea511da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend la cellule vivante (bienvenue parmi les cellules !).  <a href="#ae0cbadbe963314bacd54c1a1ea511da7">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ae0cbadbe963314bacd54c1a1ea511da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c0cd2e15f1f88efa2988b18f1192d9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grille_8c.html#a4c0cd2e15f1f88efa2988b18f1192d9b">set_non_viable</a> (int i, int j, <a class="el" href="structgrille.html">grille</a> g)</td></tr>
+<tr class="memdesc:a4c0cd2e15f1f88efa2988b18f1192d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un peu comme la zone 51: personne de doit aller là-bas.  <a href="#a4c0cd2e15f1f88efa2988b18f1192d9b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4c0cd2e15f1f88efa2988b18f1192d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c8e6e08e82824278fdf45a4a05dc85a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grille_8c.html#a3c8e6e08e82824278fdf45a4a05dc85a">set_morte</a> (int i, int j, <a class="el" href="structgrille.html">grille</a> g)</td></tr>
-<tr class="memdesc:a3c8e6e08e82824278fdf45a4a05dc85a"><td class="mdescLeft">&#160;</td><td class="mdescRight">La mort d'une cellule | <code>set_morte</code> Rend la cellule morte (RIP cellule).  <a href="#a3c8e6e08e82824278fdf45a4a05dc85a">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a3c8e6e08e82824278fdf45a4a05dc85a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend la cellule morte (RIP cellule).  <a href="#a3c8e6e08e82824278fdf45a4a05dc85a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3c8e6e08e82824278fdf45a4a05dc85a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -149,7 +153,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Allocation de la grille | <code>alloue_grille</code> Alloue la grille de taille l*c. Toutes les cellules seront <b>mortes</b> par défaut. </p>
+<p>Alloue la grille de taille l*c. Toutes les cellules seront <b>mortes</b> par défaut. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Lignes </td></tr>
@@ -170,13 +174,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void copie_grille </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structgrille.html">grille</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structgrille.html">grille</a> *const&#160;</td>
           <td class="paramname"><em>gs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structgrille.html">grille</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgrille.html">grille</a> *const&#160;</td>
           <td class="paramname"><em>gd</em>&#160;</td>
         </tr>
         <tr>
@@ -187,7 +191,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Copie de la grille | <code>copie_grille</code> Copie la grille (pour des raisons de sécurité ?) sans allouer la destination. </p>
+<p>Copie la grille (pour des raisons de sécurité ?) sans allouer la destination. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">gs</td><td>Pointeur sur la grille source </td></tr>
@@ -238,7 +242,7 @@ Fonctions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Est-elle vivante ? | <code>est_vivante</code> Teste si la cellule est vivante. </p>
+<p>Teste si la cellule est vivante. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Ligne où se trouve la cellule </td></tr>
@@ -266,7 +270,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structgrille.html">grille</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structgrille.html">grille</a> *const&#160;</td>
           <td class="paramname"><em>g</em>&#160;</td>
         </tr>
         <tr>
@@ -277,7 +281,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialisation de la grille | <code>init_grille_from_file</code> Alloue la grille et l'initialise depuis un fichier. </p>
+<p>Initialise la grille depuis un fichier. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Chemin du fichier à initialiser </td></tr>
@@ -304,7 +308,7 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Libération de la grille | <code>libere_grille</code> Libère la grille donnée. </p>
+<p>Libère la grille donnée. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">g</td><td>Pointeur qur leableau à libérer </td></tr>
@@ -354,7 +358,7 @@ Fonctions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>La mort d'une cellule | <code>set_morte</code> Rend la cellule morte (RIP cellule). </p>
+<p>Rend la cellule morte (RIP cellule). </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Ligne où se trouve la cellule </td></tr>
@@ -364,6 +368,59 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>0 sur la cellule (i,j) : la cellule est <b>morte</b> </dd></dl>
+
+</div>
+</div>
+<a id="a4c0cd2e15f1f88efa2988b18f1192d9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c0cd2e15f1f88efa2988b18f1192d9b">&#9670;&nbsp;</a></span>set_non_viable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_non_viable </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structgrille.html">grille</a>&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Un peu comme la zone 51: personne de doit aller là-bas. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Ligne où se trouve la cellule </td></tr>
+    <tr><td class="paramname">j</td><td>Colonne où se situe la cellule </td></tr>
+    <tr><td class="paramname">g</td><td>Grille </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>-1 sur la cellule (i,j) : la cellule est <b>non-viable</b> </dd></dl>
 
 </div>
 </div>
@@ -407,7 +464,7 @@ Fonctions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>La naissance d'une cellule | <code>set_vivante</code> Rend la cellule vivante (bienvenue parmi les cellules !). </p>
+<p>Rend la cellule vivante (bienvenue parmi les cellules !). </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Ligne où se trouve la cellule </td></tr>

@@ -5,7 +5,7 @@
  */
 #include "../hdr/io.h"
 #include "../hdr/jeu.h"
-unsigned int t=0;
+
 static void affiche_trait(int c) {
   int i;
   for (i=0; i<c; ++i) printf ("|---");
@@ -13,7 +13,7 @@ static void affiche_trait(int c) {
   return;
 }
 
-int oldToggle=0;
+int oldToggle=0; /**< \brief \c oldToggle est l'indicateur de vieillesse*/
 static void affiche_ligne(int ligne, const grille *g) {
   if(oldToggle==0){
     for (int i=0; i < g->nbc; ++i) {
@@ -37,7 +37,7 @@ static void affiche_ligne(int ligne, const grille *g) {
   return;
 }
 
-
+unsigned int t=0; /**< étape */
 void affiche_grille(const grille *g) {
   printf("Life: le jeu de la Vie | étape %d\n", t++);
   affiche_trait(g->nbc);
@@ -54,7 +54,8 @@ void efface_grille(const grille *g) {
 }
 
 int (*compte_v)(int, int, int, grille)=compte_voisins_vivants_nc;
-int dist=1;
+/**< \brief \c compte_v est le mode de jeu */
+int dist=1; /**< \brief \c dist est la distance de voisinage */
 void debut_jeu(grille *g, grille *gc) {
   int c = getchar();
   while (c != 'q') { // touche 'q' pour quitter
