@@ -100,6 +100,8 @@ void debut_jeu(grille *g, grille *gc) {
           affiche_grille(g);
           break;
         }
+      case 'o': //oscillations
+        break;
       default :
         { // touche non traitée
           printf("\n\e[1A");
