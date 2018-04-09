@@ -93,6 +93,11 @@ void debut_jeu(grille *g, grille *gc) {
         printf("\n\e[%dA", 2);
         break;
       }
+
+      case 'o':{//oscillations
+        
+        break;
+      }
       case '\n' :
         { // touche "entree" pour évoluer
           evolue(g,gc, dist, oldToggle, (*compte_v));

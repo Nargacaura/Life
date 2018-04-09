@@ -37,7 +37,7 @@ ifeq ($(MODE), TEXTE)
 main.o: $(SRCPATH)main.c
 	$(CC) $(CFLAGS) -c $(SRCPATH)main.c $(INCLUDE)
 else
-cairo.o: $(SRCPATH)cairo.c
+gui.o: $(SRCPATH)gui.c
 	$(CC) $(CFLAGS) -c $(SRCPATH)cairo.c $(INCLUDE)
 endif
 

@@ -239,6 +239,8 @@ int main (int argc, char *argv[]){
 					alloue_grille (g.nbl, g.nbc, &c);
 					paint(cs, g, g.nbl, g.nbc, toggle, cycle);
 					break;
+				//o -> oscillations
+				case 32: break;
 				default:break;
 			}
 			break;
