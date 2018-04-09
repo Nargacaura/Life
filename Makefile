@@ -38,7 +38,7 @@ main.o: $(SRCPATH)main.c
 	$(CC) $(CFLAGS) -c $(SRCPATH)main.c $(INCLUDE)
 else
 gui.o: $(SRCPATH)gui.c
-	$(CC) $(CFLAGS) -c $(SRCPATH)cairo.c $(INCLUDE)
+	$(CC) $(CFLAGS) -c $(SRCPATH)gui.c $(INCLUDE)
 endif
 
 %.o: %.c %.h
